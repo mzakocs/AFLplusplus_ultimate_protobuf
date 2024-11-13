@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message Packet {
+    bytes buf = 1;
+}
+
+message FuzzInput {
+    repeated Packet packets = 1;
+}
