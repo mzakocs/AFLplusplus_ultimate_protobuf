@@ -1,7 +1,3 @@
-
-set(CMAKE_C_COMPILER "afl-clang-fast")
-set(CMAKE_CXX_COMPILER "afl-clang-fast++")
-
 set(HARNESS_NAME example_harness)
 add_executable(${HARNESS_NAME} 
     harness.cpp

@@ -6,9 +6,6 @@ enable_language(CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
-# set(CMAKE_C_COMPILER "clang")
-# set(CMAKE_CXX_COMPILER "clang++")
-
 OPTION(LIB_PROTOBUF_DOWNLOAD
        "Automatically download working Protobuf" ON)
 
