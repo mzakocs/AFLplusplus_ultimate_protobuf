@@ -48,9 +48,8 @@ include(FetchContent)
 set(protobuf_BUILD_TESTS CACHE INTERNAL OFF)
 message(STATUS "Fetching libprotobuf...")
 FetchContent_Declare(${PROTOBUF_TARGET}
-  GIT_REPOSITORY "http://github.com/protocolbuffers/protobuf.git"
-  GIT_TAG "v21.12" # NOTE: Do not try to get post-absl versions of protobuf working. Believe me it's not worth it
-  PATCH_COMMAND git apply --ignore-whitespace "${CMAKE_CURRENT_LIST_DIR}/0001-protobuf-generate-libprotobuf.patch"
+  GIT_REPOSITORY "https://github.com/mzakocs/protobuf.git"
+  GIT_TAG "main"
   GIT_SHALLOW TRUE
   GIT_SUBMODULES ""
   OVERRIDE_FIND_PACKAGE

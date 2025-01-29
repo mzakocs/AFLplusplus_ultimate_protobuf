@@ -80,17 +80,14 @@ set(LPM_INCLUDE_DIRS ${LPM_INSTALL_DIR})
 # list(APPEND _IMPORT_CHECK_TARGETS libprotobuf-mutator::protobuf-mutator )
 # list(APPEND _IMPORT_CHECK_FILES_FOR_libprotobuf-mutator::protobuf-mutator "${LPM_LIB_DIR}/libprotobuf-mutator.a" )
 
-set(LPM_GIT_URL      https://github.com/mzakocs/libprotobuf-mutator.git)  
-set(LPM_GIT_TAG      master)
-
 FIND_PACKAGE(Protobuf CONFIG REQUIRED)
 include(FetchContent)
 set(LIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF CACHE INTERNAL OFF)
 set(LIB_PROTO_MUTATOR_TESTING CACHE INTERNAL OFF)
 message(STATUS "Fetching libprotobuf-mutator...")
 FetchContent_Declare(${LPM_TARGET}
-  GIT_REPOSITORY ${LPM_GIT_URL}
-  GIT_TAG ${LPM_GIT_TAG}
+  GIT_REPOSITORY "https://github.com/mzakocs/libprotobuf-mutator.git"
+  GIT_TAG "master"
   GIT_SHALLOW TRUE
   GIT_SUBMODULES ""
   OVERRIDE_FIND_PACKAGE
