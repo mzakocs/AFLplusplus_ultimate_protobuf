@@ -1,6 +1,6 @@
 # Protobuf
 FIND_PACKAGE(Protobuf REQUIRED)
-include("${PROTOBUF_INSTALL_DIR}/cmake/protobuf-generate.cmake")
+include("${PROTOBUF_SRC_DIR}/cmake/protobuf-generate.cmake")
 
 add_custom_target(example_proto ALL)
 add_dependencies(example_proto protobuf::libprotobuf)

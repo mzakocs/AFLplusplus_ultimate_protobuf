@@ -1,4 +1,4 @@
-My branch of `libprotobuf` backports [this](https://github.com/protocolbuffers/protobuf/commit/ad55f52fdb4557953593cd096b903b0347b02f25) commit in libprotobuf to v21.12 (last pre-absl version), allows this project to use the `protobuf_generate` CMake function by just including `protobuf_generate.cmake` 
+My branch of `libprotobuf` backports [this](https://github.com/protocolbuffers/protobuf/commit/ad55f52fdb4557953593cd096b903b0347b02f25) commit in libprotobuf to v21.12 (last pre-absl version), allows this project to use the `protobuf_generate` CMake function by just including `protobuf_generate.cmake`. Keep in mind this only adds `protobuf_generate` and not `protobuf_generate_cpp`, which isn't a huge deal since `protobuf_generate_cpp` is deprecated but it causes some examples in `libprotobuf-mutate` to fail (which is why there is a commit in my version to disable them)
 
 My branch of `libprotobuf-mutator` removes any absl dependencies from the library
 
