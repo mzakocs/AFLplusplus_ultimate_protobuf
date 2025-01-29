@@ -18,21 +18,21 @@ add_subdirectory(fuzzer)
 add_subdirectory(mutator)
 
 # Corpus Creator
-set(CORPUS_PROTO_CREATOR_NAME corpus_proto_creator)
-add_executable(${CORPUS_PROTO_CREATOR_NAME}
+set(CORPUS_PROTO_CREATOR_TARGET corpus_proto_creator)
+add_executable(${CORPUS_PROTO_CREATOR_TARGET}
     ${EXAMPLE_PROTO_SRC} 
     corpus_proto_creator.cpp
 )
 
-add_dependencies(${CORPUS_PROTO_CREATOR_NAME}
+add_dependencies(${CORPUS_PROTO_CREATOR_TARGET}
     example_proto
     protobuf::libprotobuf
 )
 
-target_link_libraries(${CORPUS_PROTO_CREATOR_NAME}
+target_link_libraries(${CORPUS_PROTO_CREATOR_TARGET}
     protobuf::libprotobuf
 )
 
-target_include_directories(${CORPUS_PROTO_CREATOR_NAME} PUBLIC
+target_include_directories(${CORPUS_PROTO_CREATOR_TARGET} PUBLIC
     ${PROTOBUF_INCLUDE_DIRS}
 )

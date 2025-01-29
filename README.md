@@ -27,7 +27,7 @@ make -j`nproc`
 - Currently only supports protobuf text format, although it is not difficult to add support for the binary format. May do this in the future if enough people ask
     - Although speed increase is negligible and doesn't beat the tradeoff of being able to easily read the crash inputs
 - You **must** disable AFL's trimming feature with the `AFL_DISABLE_TRIM` environment variable. Otherwise it will attempt to trim the text protobufs like they're raw bytes and corrupt them after every mutation
-  - Might try to implement a custom trimmer in the future but impact is questionable
+  - Want to implement a custom trimmer in the future
 
 ## Credit
 This library is heavily inspired by these two projects:
@@ -36,3 +36,5 @@ This library is heavily inspired by these two projects:
     - Highly recommend using my [absl-less fork of libprotobuf-mutator](https://github.com/mzakocs/libprotobuf-mutator) with `LIB_PROTO_MUTATOR_DOWNLOAD_PROTOBUF` enabled if including the dependencies another way however
   - Also shows extra post-processer in their `afl_custom_init`
 - [AFLplusplus-protobuf-mutator](https://github.com/P1umer/AFLplusplus-protobuf-mutator)
+  - A lot of the CMake build system was originally based on the build system from this project
+  - Inspired the creation of AFLplusplus_ultimate_protobuf

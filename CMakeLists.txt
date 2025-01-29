@@ -40,17 +40,17 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CXX_EXTRA_FLAGS}")
 set(PROTOBUF_CFLAGS "${CMAKE_C_FLAGS} ${NO_FUZZING_FLAGS} -w")
 set(PROTOBUF_CXXFLAGS "${CMAKE_CXX_FLAGS} ${NO_FUZZING_FLAGS} -w")
 if(CMAKE_USE_PTHREADS_INIT)
-  set(PROTOBUF_CFLAGS "${PROTOBUF_CFLAGS} -pthread")
-  set(PROTOBUF_CXXFLAGS "${PROTOBUF_CXXFLAGS} -pthread")
+    set(PROTOBUF_CFLAGS "${PROTOBUF_CFLAGS} -pthread")
+    set(PROTOBUF_CXXFLAGS "${PROTOBUF_CXXFLAGS} -pthread")
 endif()
 
 if (LIB_PROTOBUF_DOWNLOAD)
   include(libprotobuf)
 else()
-  # Untested
-  find_package(Protobuf REQUIRED)
-  include_directories(${PROTOBUF_INCLUDE_DIRS})
-  include_directories(${CMAKE_CURRENT_BINARY_DIR})
+    # Untested
+    find_package(Protobuf REQUIRED)
+    include_directories(${PROTOBUF_INCLUDE_DIRS})
+    include_directories(${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
 if(LIB_PROTOBUF_MUTATOR_DOWNLOAD)
@@ -70,10 +70,11 @@ endif()
 set(LIB_NAME afl_ultimate_protobuf_mutator)
 add_library(${LIB_NAME} INTERFACE)
 target_include_directories(${LIB_NAME} INTERFACE 
-  lpm_afl_mutator.h 
-  ${PROTOBUF_INCLUDE_DIRS}
-  ${LPM_INCLUDE_DIRS}
+    lpm_afl_mutator.h 
+    ${PROTOBUF_INCLUDE_DIRS}
+    ${LPM_INCLUDE_DIRS}
 )
+
 if(LIB_PROTOBUF_MUTATOR_DOWNLOAD)
     add_dependencies(${LIB_NAME} INTERFACE protobuf-mutator)
 endif()
