@@ -13,6 +13,11 @@ add_dependencies(${MUTATOR_TARGET}
 
 target_link_libraries(${MUTATOR_TARGET} 
     afl_ultimate_protobuf_mutator
+    protobuf::libprotobuf
+)
+
+target_include_directories(${MUTATOR_TARGET} PUBLIC
+    ${EXAMPLE_PROTO_INCLUDE_DIRS}
 )
 
 if (CMAKE_CXX_COMPILER MATCHES "afl")

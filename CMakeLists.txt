@@ -70,7 +70,7 @@ endif()
 set(LIB_NAME afl_ultimate_protobuf_mutator)
 add_library(${LIB_NAME} INTERFACE)
 target_include_directories(${LIB_NAME} INTERFACE 
-    lpm_afl_mutator.h 
+    ${CMAKE_SOURCE_DIR} 
     ${PROTOBUF_INCLUDE_DIRS}
     ${LPM_INCLUDE_DIRS}
 )

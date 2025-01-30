@@ -2,14 +2,16 @@
 FIND_PACKAGE(Protobuf REQUIRED)
 include("${PROTOBUF_SRC_DIR}/cmake/protobuf-generate.cmake")
 
-add_custom_target(example_proto ALL)
-add_dependencies(example_proto protobuf::libprotobuf)
+set(EXAMPLE_PROTO_TARGET example_proto)
+add_custom_target(${EXAMPLE_PROTO_TARGET} ALL)
+add_dependencies(${EXAMPLE_PROTO_TARGET} protobuf::libprotobuf)
 protobuf_generate(
     LANGUAGE cpp
-    TARGET example_proto
+    TARGET ${EXAMPLE_PROTO_TARGET}
     PROTOS example.proto
     OUT_VAR EXAMPLE_PROTO_SRC
 )
+set(EXAMPLE_PROTO_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR})
 
 # Harness
 add_subdirectory(fuzzer)
@@ -35,4 +37,5 @@ target_link_libraries(${CORPUS_PROTO_CREATOR_TARGET}
 
 target_include_directories(${CORPUS_PROTO_CREATOR_TARGET} PUBLIC
     ${PROTOBUF_INCLUDE_DIRS}
+    ${EXAMPLE_PROTO_INCLUDE_DIRS}
 )
