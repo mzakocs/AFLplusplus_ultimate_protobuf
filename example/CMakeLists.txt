@@ -3,7 +3,7 @@ FIND_PACKAGE(Protobuf REQUIRED)
 include("${PROTOBUF_SRC_DIR}/cmake/protobuf-generate.cmake")
 
 set(EXAMPLE_PROTO_TARGET example_proto)
-add_custom_target(${EXAMPLE_PROTO_TARGET} ALL)
+add_custom_target(${EXAMPLE_PROTO_TARGET})
 add_dependencies(${EXAMPLE_PROTO_TARGET} protobuf::libprotobuf)
 protobuf_generate(
     LANGUAGE cpp
