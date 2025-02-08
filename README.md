@@ -38,6 +38,7 @@ make -j`nproc`
     add_subdirectory(${CMAKE_SOURCE_DIR}/lib/AFLplusplus_ultimate_protobuf_mutator)
     ```
   - This does come with the advantage of being more configurable and allowing you to use the pre-existing build of protobuf if the project you're fuzzing already has it
+- Check out [coconut-fsw](https://github.com/ASU-SDSL/coconut-fsw/tree/main) for a real-world usage example of this library (mainly in `/main/test`)
 
 ## Notes
 - Only tested on Ubuntu 22.04 with AFL++ 4.20c
@@ -48,7 +49,7 @@ make -j`nproc`
 - This can be used for AFL QEMU mode (major reason for creating this project), but it requires some linker and ELF wizardry to get the converter harness and static protobuf libraries into the target binary. There is a project underway that does this, so this section will be updated in the future once finished
 - Very annoying part of creating custom mutators is that not a single object file that is included in the shared library can be built with the `afl-cc` compilers. Otherwise you will get errors from `ld` when AFL attempts to load it. You can get around this by using `--afl-noopt`, a barely-documented feature of `afl-cc` that will cause the compiler to pass the source files directly down to the base compiler (clang, gcc, etc.)
   - You can see the use of this all throughout the CMake build files, but it comes with the downside that libprotobuf and the compiled protobufs will not have AFL instrumentation (although this is probably more of an upside due to execution speed if anything)
-
+- Please create a GitHub issue if you have any questions or feature requests!
 
 ## Credit
 This library is heavily inspired by these two projects:
@@ -57,3 +58,5 @@ This library is heavily inspired by these two projects:
   - Also shows extra post-processer in their `afl_custom_init`
 - [AFLplusplus-protobuf-mutator](https://github.com/P1umer/AFLplusplus-protobuf-mutator)
   - CMake build system/structure was based on this project
+
+If this repo helped you, please ⭐ it!
