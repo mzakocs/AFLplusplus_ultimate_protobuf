@@ -41,7 +41,7 @@ make -j`nproc`
 - Check out [coconut-fsw](https://github.com/ASU-SDSL/coconut-fsw/tree/main) for a real-world usage example of this library (mainly in `/main/test`)
 
 ## Notes
-- Only tested on Ubuntu 22.04 with AFL++ 4.20c
+- Tested on Ubuntu 22.04 with AFL++ 4.20c and Ubuntu 24.04 with AFL++ 4.30c
 - Currently only supports protobuf text format, although it is not difficult to add support for the binary format. May do this in the future if enough people ask
     - Although speed increase is negligible and doesn't beat the tradeoff of being able to easily read the crash inputs
 - You **must** disable AFL's trimming feature with the `AFL_DISABLE_TRIM` environment variable. Otherwise it will attempt to trim the text protobufs like they're raw bytes and corrupt them after every mutation
